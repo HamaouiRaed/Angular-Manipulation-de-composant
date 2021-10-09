@@ -8,6 +8,7 @@ import { Product } from '../models/Product';
 })
 export class ProductsComponent implements OnInit {
   listProdcut!:Product[];
+  maxPrice!:number;
 
   constructor() {
 

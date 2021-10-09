@@ -1,17 +1,22 @@
-<table class="table" *ngFor="let p of listProdcut, let i=index">
-    <tr>
-        <td>title:{{p.title}}</td>
-    </tr>
-    <tr>
-        <td>price:{{p.price}}</td>
-    </tr>
-    <tr>
-        <td>quantity:{{p.quantity}}</td>
-    </tr>
-    <tr>
-        <td>like:{{p.like}}</td>
-    </tr>
-    <button (click)="buy(i)" [disabled]="p.quantity==0" >Buy</button>
-    <button (click)="like(i)">Like</button>
-   
-</table>
+<input type="number" [(ngModel)]="maxPrice">
+<div *ngFor="let p of listProdcut, let i=index">
+    <div *ngIf="p.price<=maxPrice" >
+        <table class="table">
+            <tr>
+                <td>title:{{p.title}}</td>
+            </tr>
+            <tr>
+                <td>price:{{p.price}}</td>
+            </tr>
+            <tr>
+                <td>quantity:{{p.quantity}}</td>
+            </tr>
+            <tr>
+                <td>like:{{p.like}}</td>
+            </tr>
+            <button (click)="buy(i)" [disabled]="p.quantity==0">Buy</button>
+            <button (click)="like(i)">Like</button>
+
+        </table>
+    </div>
+</div>
