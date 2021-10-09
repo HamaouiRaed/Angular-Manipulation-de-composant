@@ -1,4 +1,4 @@
-<table class="table" *ngFor="let p of listProdcut; let i=index">
+<table class="table" *ngFor="let p of listProdcut, let i=index">
     <tr>
         <td>title:{{p.title}}</td>
     </tr>
@@ -11,7 +11,7 @@
     <tr>
         <td>like:{{p.like}}</td>
     </tr>
-
-    <button type="button" class="btn btn-secondary">Like</button>
-    <button type="button" class="btn btn-primary" [disabled]="p.quantity<=0">Buy</button>
+    <button (click)="buy(i)" [disabled]="p.quantity==0" >Buy</button>
+    <button (click)="like(i)">Like</button>
+   
 </table>
